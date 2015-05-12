@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>EBaaS</title>
+    <link href="css/bootstrap.css" rel="stylesheet"/>
+    <link href="css/site.css" rel="stylesheet"/>
+    <link href="css/ebaas.css" rel="stylesheet"/>
+    <link href="css/signin.css" rel="stylesheet"/>
+    <link href="css/signup.css" rel="stylesheet"/>
+    <link href="css/dashboard.css" rel="stylesheet"/>
+    <script src="lib/jquery.min.js" type="text/javascript"></script>
+    <script src="lib/angular.js" type="text/javascript"></script>
+    <script src="lib/angular-route.js" type="text/javascript"></script>
+    <script src="lib/angular-messages.js" type="text/javascript"></script>
+    <script src="lib/header.js" type="text/javascript"></script>
+    <script src="js/ebaas.js" type="text/javascript"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+
+
+</head>
+<body ng-app="ebaas" style="background-color: #333333" >
+<header class="navbar navbar-bright navbar-fixed-top affix-top" role="banner" data-spy="affix" data-offset-top="80" style="background-color: #000000">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" id="brand" title="TAXI For all"><span style="color:#f9f9f9;font-weight:900;">T A X I  </span></a>
+        </div>
+        <div class="collapse navbar-collapse" role="navigation" id="navbar" ng-controller="loginController">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a style="color:#ffffff" href=#HOME">HOME</a></li>
+                <li><a id="login" style="color:#ffffff" href="#login"   ng-hide="isAuthorized()">LOGIN</a></li>
+                <li><a id="signup" style="color:#ffffff" href="#signup"  ng-hide="isAuthorized()">SIGN UP</a></li>
+                <li><a id="signout" style="color:#ffffff" href="#signout" ng-show="isAuthorized()">SIGN OUT</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<div class="container" style="background: url(./images/taxi.jpg) repeat center top" >
+   <!-- <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only"><h2><img src="images/backend-icon-1.png" height="50" width="50"><span style="margin-left:5px;">EBaaS</span></h2></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" style="color:#ffffff" href=#"> T A X I </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse" style="background-color:#000000" ng-controller="loginController">
+                <ul class="nav navbar-nav navbar-right navbar-right" style="color:#ffffff">
+                    <li><a style="color:#ffffff" href=#HOME">HOME</a></li>
+                    <li><a id="login" style="color:#ffffff" href="#login"   ng-hide="isAuthorized()">LOGIN</a></li>
+                    <li><a id="signup" style="color:#ffffff" href="#signup"  ng-hide="isAuthorized()">SIGN UP</a></li>
+                    <li><a id="signout" style="color:#ffffff" href="#signout" ng-show="isAuthorized()">SIGN OUT</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>-->
+
+    <section class="panel-body" style="min-height:780px">
+        <div ng-view></div>
+    </section>
+    <footer class="panel-footer" style="background-color: #000000">
+        <strong style="color: #ffffff">&copy;Knights</strong>
+    </footer>
+</div>
+</body>
+</html>
