@@ -152,8 +152,11 @@ ebbas.service('applicationService',['$rootScope', '$http', function($rootScope, 
 
 ebbas.service('userService',['$http', function(http){
 
+    var apiKey = '5c242efa-75cb-41ed-92d4-37d18f7a1353';
+    var host = "http://localhost:8080/EBAAS/";
     this.createUser = function(updateStatus, person){
-        var userUrl = 'rest/person';
+        http.defaults.headers.common.Authorization = apiKey;
+        var userUrl = host+'rest/appUserRegistration';
         var promisses = http.post(userUrl, person);
         promisses.success(function(data, status, headers, config){
             $("#login").hide();
@@ -167,8 +170,10 @@ ebbas.service('userService',['$http', function(http){
     }
 
     this.authenticate = function(updateStatus, person){
-        var authenticateUrl = 'rest/person';
-        authenticateUrl = authenticateUrl + '/' + person.email+ '/'+ person.password
+        var authenticateUrl = host+'rest/appUserAuth';
+        var header = "Basic "+ btoa( person.email+":"+person.password);
+        http.defaults.headers.common.Authorization = header;
+        http.defaults.headers.common.apiKey=apiKey;
         var promisses = http.post(authenticateUrl, person);
         promisses.success(function(data, status, headers, config){
             $("#login").hide();
